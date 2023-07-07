@@ -108,14 +108,19 @@ function startExam() {
     const randomizedCards = cards.slice();
     randomizedCards.sort(() => Math.random() - 0.5);
 
+    // Создаем DocumentFragment для множественной вставки элементов карточек
+    const fragment = document.createDocumentFragment();
+
     // Создаем элементы карточек для теста и добавляем их в контейнер
     randomizedCards.forEach((card) => {
         const cardWordElement = createCardElement(card.translation, card.word);
         const cardTranslationElement = createCardElement(card.word, card.translation);
-        contentElement.append(cardWordElement);
-        contentElement.append(cardTranslationElement);
+        fragment.append(cardWordElement);
+        fragment.append(cardTranslationElement);
     });
 
+    // Вставляем DocumentFragment в контейнер
+    contentElement.appendChild(fragment);
 
 }
 
