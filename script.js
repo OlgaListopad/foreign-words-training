@@ -120,7 +120,7 @@ function startExam() {
     });
 
     // Вставляем DocumentFragment в контейнер
-    contentElement.appendChild(fragment);
+    contentElement.append(fragment);
 
 }
 
